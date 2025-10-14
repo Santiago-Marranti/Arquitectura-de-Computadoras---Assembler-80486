@@ -1,0 +1,14 @@
+//Análisis final (punto 10)
+
+!echo "=== ANÁLISIS Y METODOLOGÍA ==="
+!echo ""
+!echo "PROBLEMAS IDENTIFICADOS:"
+!echo "1. Sintaxis DOS vs Linux"
+!echo "2. Llamadas al sistema diferentes"
+!echo "3. Manejo de E/S más complejo en assembler"
+!echo ""
+!echo "METODOLOGÍA DE RESOLUCIÓN:"
+!echo "1. Adaptar código DOS → Linux"
+!echo "2. Implementar conversiones ASCII/número"
+!echo "3. Probar incrementalmente"
+!echo "4. Comparar con versión C"
