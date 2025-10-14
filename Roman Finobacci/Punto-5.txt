@@ -1,0 +1,131 @@
+5. Sentencias usadas en Linux para compilar y linkear
+bash
+
+Instalación de dependencias
+sudo apt update sudo apt install nasm gcc-multilib -y
+
+Ensamblado (compilación)
+nasm -f elf32 arrays.asm -o arrays.o
+
+Enlazado (linking)
+ld -m elf_i386 arrays.o -o arrays
+
+Ejecución
+./arrays
+
+
+//Pasos
+
+IMPLEMENTACIÓN COMPLETA FIBONACCI EN GOOGLE COLAB
+  //PASO 1: Instalar dependencias
+
+!sudo apt update
+!sudo apt install nasm gcc-multilib -y
+
+
+  // PASO 2: Crear el archivo Fibonacci para Linux
+
+%%writefile fibonacci.asm
+section .data
+    fib     dw 0, 1, 0, 0, 0, 0, 0, 0, 0, 0  ; Array Fibonacci
+    msg     db 'Fibonacci: ', 0
+    len_msg equ $ - msg
+    space   db ' ', 0
+    newline db 10, 0
+    buffer  times 10 db 0
+
+section .text
+    global _start
+
+_start:
+    ; Calcular secuencia Fibonacci
+    mov cx, 8           ; 8 números restantes por calcular
+    mov si, 4           ; Empezar desde fib[2]
+
+fib_loop:
+    mov ax, [fib + si - 4]  ; fib[n-2]
+    add ax, [fib + si - 2]  ; + fib[n-1]
+    mov [fib + si], ax      ; fib[n] = resultado
+    add si, 2               ; siguiente posición
+    loop fib_loop
+
+    ; Mostrar "Fibonacci: "
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, msg
+    mov edx, len_msg
+    int 0x80
+
+    ; Mostrar los números
+    mov cx, 10
+    mov si, 0
+
+display_loop:
+    mov ax, [fib + si]      ; número a mostrar
+    call print_number
+    call print_space
+
+    add si, 2
+    loop display_loop
+
+    ; Nueva línea final
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, newline
+    mov edx, 1
+    int 0x80
+
+    ; Salir
+    mov eax, 1
+    mov ebx, 0
+    int 0x80
+
+; Procedimiento para imprimir número
+print_number:
+    pusha
+    mov edi, buffer + 9
+    mov byte [edi], 0
+    mov bx, 10
+    mov cx, 0              ; contador de dígitos
+
+convert:
+    dec edi
+    xor dx, dx
+    div bx
+    add dl, '0'
+    mov [edi], dl
+    inc cx
+    test ax, ax
+    jnz convert
+
+    ; Mostrar número
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, edi
+    mov edx, cx
+    int 0x80
+
+    popa
+    ret
+
+; Procedimiento para imprimir espacio
+print_space:
+    pusha
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, space
+    mov edx, 1
+    int 0x80
+    popa
+    ret
+
+
+   // PASO 3: Compilar y ejecutar Fibonacci
+
+
+    # Compilar
+!nasm -f elf32 fibonacci.asm -o fibonacci.o
+!ld -m elf_i386 fibonacci.o -o fibonacci
+
+# Ejecutar
+!./fibonacci

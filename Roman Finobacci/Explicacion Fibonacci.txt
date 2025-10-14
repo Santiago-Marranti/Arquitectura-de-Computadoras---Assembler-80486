@@ -1,0 +1,56 @@
+🧮 1. Serie Fibonacci
+🎯 Objetivo:
+
+Calcular los primeros 10 números de la serie de Fibonacci y mostrarlos por pantalla.
+
+🧩 Descripción paso a paso:
+
+1️⃣ Inicio / Inicialización del segmento de datos:
+
+Configura el segmento de datos con:
+
+MOV AX, @DATA MOV DS, AX
+
+Esto permite acceder correctamente a las variables en memoria.
+
+2️⃣ Inicializar primeros términos:
+
+Se cargan los dos primeros valores de la secuencia:
+
+fib[0] = 0 fib[1] = 1
+
+3️⃣ Configurar el bucle principal:
+
+Se prepara el registro CX = 8 (faltan 8 números para llegar a 10).
+
+SI = 4 apunta al siguiente espacio en memoria (ya que cada número ocupa 2 bytes).
+
+4️⃣ Bucle FIB_LOOP:
+
+Verifica si CX = 0. Si es así, termina el cálculo.
+
+Si no, calcula el siguiente número de Fibonacci:
+
+fib[SI] = fib[SI-2] + fib[SI-4]
+
+(suma los dos anteriores en la secuencia).
+
+5️⃣ Actualizar índices:
+
+Incrementa SI en 2 para pasar al siguiente número.
+
+Decrementa CX en 1 para reducir el contador.
+
+6️⃣ Mostrar resultados:
+
+Muestra en pantalla el mensaje: "Fibonacci:"
+
+Configura otro bucle para recorrer el arreglo y llamar a la rutina que imprime cada número almacenado.
+
+7️⃣ Fin del programa.
+
+🧠 Explicación resumida:
+
+Este programa genera la secuencia de Fibonacci guardando los valores en memoria y luego los imprime. Los registros SI y CX sirven para recorrer el array y controlar la cantidad de iteraciones.
+
+
