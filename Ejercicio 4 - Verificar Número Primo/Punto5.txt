@@ -1,0 +1,13 @@
+PASO 5: Compilar y probar con input
+Instalación de dependencias
+
+sudo apt update sudo apt install nasm gcc-multilib -y
+Ensamblado (compilación)
+
+nasm -f elf32 arrays.asm -o arrays.o
+Enlazado (linking)
+
+ld -m elf_i386 arrays.o -o arrays
+Ejecución
+
+./arrays

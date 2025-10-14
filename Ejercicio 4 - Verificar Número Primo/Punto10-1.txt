@@ -1,0 +1,25 @@
+=== COMPARACIÓN DE VERSIONES ASSEMBLER ===
+
+1. ASSEMBLER MANUAL (TU CÓDIGO ADAPTADO):
+   - Algoritmo básico de verificación
+   - Divisores desde 2 hasta n-1
+   - Sintaxis NASM Intel
+
+2. ASSEMBLER GENERADO POR GCC:
+   - Algoritmo optimizado (hasta sqrt(n))
+   - Omite números pares después del 2
+   - Sintaxis AT&T con optimizaciones
+
+3. EJECUCIÓN PRÁCTICA:
+Verificación individual:
+Ingrese un numero para verificar si es primo: 17
+17 es primo
+Ingrese un numero para verificar si es primo: 15
+15 no es primo
+
+Primos en rango 10-30:
+Ingrese inicio del rango: Ingrese fin del rango: Numeros primos en el rango: 
+
+
+Versión C:
+17 es primo

@@ -1,0 +1,34 @@
+=== ANÁLISIS Y METODOLOGÍA DE RESOLUCIÓN ===
+
+PROBLEMAS IDENTIFICADOS EN CÓDIGO ORIGINAL:
+❌ DIV CX modifica AX (pérdida del número original)
+❌ Bucle ineficiente (hasta n-1 en lugar de sqrt(n))
+❌ No maneja el caso especial del número 2
+❌ Sintaxis DOS incompatible con Linux
+❌ Falta optimización para números pares
+
+CORRECCIONES IMPLEMENTADAS:
+✅ Restauración de AX después de cada DIV
+✅ Optimización del bucle (hasta n/2)
+✅ Manejo correcto de casos especiales (0, 1, 2)
+✅ Adaptación completa a Linux
+✅ Input interactivo agregado
+
+MEJORAS ADICIONALES:
+✅ Función reutilizable para verificación de primos
+✅ Generación de primos en rango
+✅ Mejor eficiencia del algoritmo
+
+METODOLOGÍA APLICADA:
+1. Análisis del algoritmo original
+2. Identificación de problemas de lógica
+3. Corrección de errores en manipulación de registros
+4. Optimización del algoritmo
+5. Adaptación al entorno Linux
+6. Implementación de funcionalidades adicionales
+
+RESULTADO FINAL:
+✅ Código corregido y optimizado
+✅ Funcionalidad extendida con input
+✅ Comparación assembler vs C completada
+✅ Metodología de debugging documentada

@@ -1,0 +1,63 @@
+# Compilar todo
+!nasm -f elf32 primo_input.asm -o primo_input.o
+!ld -m elf_i386 primo_input.o -o primo_input
+
+!nasm -f elf32 primos_rango_input.asm -o primos_rango_input.o
+!ld -m elf_i386 primos_rango_input.o -o primos_rango_input
+
+!gcc -m32 primo.c -o primo_c
+
+# Comparación
+!echo "=== COMPARACIÓN DE VERSIONES ASSEMBLER ==="
+!echo ""
+!echo "1. ASSEMBLER MANUAL (TU CÓDIGO ADAPTADO):"
+!echo "   - Algoritmo básico de verificación"
+!echo "   - Divisores desde 2 hasta n-1"
+!echo "   - Sintaxis NASM Intel"
+
+!echo ""
+!echo "2. ASSEMBLER GENERADO POR GCC:"
+!echo "   - Algoritmo optimizado (hasta sqrt(n))"
+!echo "   - Omite números pares después del 2"
+!echo "   - Sintaxis AT&T con optimizaciones"
+
+!echo ""
+!echo "3. EJECUCIÓN PRÁCTICA:"
+!echo "Verificación individual:"
+!echo "17" | ./primo_input
+!echo "15" | ./primo_input
+
+!echo ""
+!echo "Primos en rango 10-30:"
+!echo -e "10\n30" | ./primos_rango_input
+
+!echo ""
+!echo "Versión C:"
+!./primo_c
+
+
+=== COMPARACIÓN DE VERSIONES ASSEMBLER ===
+
+1. ASSEMBLER MANUAL (TU CÓDIGO ADAPTADO):
+   - Algoritmo básico de verificación
+   - Divisores desde 2 hasta n-1
+   - Sintaxis NASM Intel
+
+2. ASSEMBLER GENERADO POR GCC:
+   - Algoritmo optimizado (hasta sqrt(n))
+   - Omite números pares después del 2
+   - Sintaxis AT&T con optimizaciones
+
+3. EJECUCIÓN PRÁCTICA:
+Verificación individual:
+Ingrese un numero para verificar si es primo: 17
+17 es primo
+Ingrese un numero para verificar si es primo: 15
+15 no es primo
+
+Primos en rango 10-30:
+Ingrese inicio del rango: Ingrese fin del rango: Numeros primos en el rango: 
+
+
+Versión C:
+17 es primo
