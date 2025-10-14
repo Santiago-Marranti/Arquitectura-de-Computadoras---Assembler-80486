@@ -1,0 +1,51 @@
+# Compilar todo
+!nasm -f elf32 mcd_input.asm -o mcd_input.o
+!ld -m elf_i386 mcd_input.o -o mcd_input
+
+!nasm -f elf32 mcd_mcm_input.asm -o mcd_mcm_input.o
+!ld -m elf_i386 mcd_mcm_input.o -o mcd_mcm_input
+
+!gcc -m32 mcd.c -o mcd_c
+
+# Comparación
+!echo "=== COMPARACIÓN DE VERSIONES ASSEMBLER ==="
+!echo ""
+!echo "1. ASSEMBLER MANUAL (ALGORITMO DE EUCLIDES):"
+!echo "   - Implementación directa del algoritmo"
+!echo "   - Uso eficiente de registros"
+!echo "   - Sintaxis NASM Intel clara"
+
+!echo ""
+!echo "2. ASSEMBLER GENERADO POR GCC:"
+!echo "   - Código más verboso con directivas"
+!echo "   - Optimizaciones del compilador"
+!echo "   - Manejo automático del stack frame"
+
+!echo ""
+!echo "3. EJECUCIÓN PRÁCTICA:"
+!echo "MCD de 48 y 18:"
+!echo -e "48\n18" | ./mcd_input
+
+!echo ""
+!echo "MCD y MCM de 12 y 18:"
+!echo -e "12\n18" | ./mcd_mcm_input
+
+!echo ""
+!echo "Versión C:"
+!./mcd_c
+
+=== COMPARACIÓN DE VERSIONES ASSEMBLER ===
+
+1. ASSEMBLER MANUAL (ALGORITMO DE EUCLIDES):
+   - Implementación directa del algoritmo
+   - Uso eficiente de registros
+   - Sintaxis NASM Intel clara
+
+2. ASSEMBLER GENERADO POR GCC:
+   - Código más verboso con directivas
+   - Optimizaciones del compilador
+   - Manejo automático del stack frame
+
+3. EJECUCIÓN PRÁCTICA:
+MCD de 48 y 18:
+Ingrese primer numero: 
