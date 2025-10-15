@@ -1,0 +1,38 @@
+# Paso 5
+# Comandos para instalar dependencias, compilar y linkear en Linux.
+
+Compilar y probar con input
+
+Instalación de dependencias:
+sudo apt update sudo apt install nasm gcc-multilib -y
+
+Ensamblado (compilación):
+nasm -f elf32 arrays.asm -o arrays.o
+
+Enlazado (linking):
+ld -m elf_i386 arrays.o -o arrays
+
+Ejecución:
+./arrays
+
+!sudo apt update
+!sudo apt install nasm gcc-multilib -y
+
+# Ensamblar el código
+!nasm -f elf32 arrays.asm -o arrays.o
+
+# Verificar que se creó el archivo objeto
+!ls -la arrays.o
+
+# Crear el ejecutable
+!ld -m elf_i386 arrays.o -o arrays
+
+# Verificar que se creó el ejecutable
+!ls -la arrays
+
+# Ejecutar
+!./arrays
+
+# Ver el resultado (código de salida)
+!echo "El programa terminó con código de salida: $?"
+!echo "Esto significa que 2+4+6+8+10 = 30 (0x1E en hexadecimal)"
