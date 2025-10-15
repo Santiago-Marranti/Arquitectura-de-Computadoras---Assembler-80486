@@ -1,0 +1,35 @@
+# Primero compilar todo
+!nasm -f elf32 array_suma_input.asm -o array_suma_input.o
+!ld -m elf_i386 array_suma_input.o -o array_suma_input
+
+!nasm -f elf32 array_promedio_input.asm -o array_promedio_input.o
+!ld -m elf_i386 array_promedio_input.o -o array_promedio_input
+
+!gcc -m32 array_suma.c -o array_suma_c
+
+# Comparación
+!echo "=== COMPARACIÓN DE VERSIONES ASSEMBLER ==="
+!echo ""
+!echo "1. ASSEMBLER ORIGINAL ADAPTADO A LINUX:"
+!echo "   - Sintaxis NASM (Intel)"
+!echo "   - Control manual de registros"
+!echo "   - Llamadas directas al sistema"
+
+!echo ""
+!echo "2. ASSEMBLER GENERADO POR GCC:"
+!echo "   - Sintaxis AT&T"
+!echo "   - Uso de librerías C"
+!echo "   - Optimizaciones automáticas"
+
+!echo ""
+!echo "3. EJECUCIÓN DE VERSIONES:"
+!echo "Suma con input (3 números: 10, 20, 30):"
+!echo -e "3\n10\n20\n30" | ./array_suma_input
+
+!echo ""
+!echo "Promedio con input (4 números: 5, 10, 15, 20):"
+!echo -e "4\n5\n10\n15\n20" | ./array_promedio_input
+
+!echo ""
+!echo "Versión C (array fijo):"
+!./array_suma_c
